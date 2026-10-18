@@ -1,3 +1,4 @@
+```mermaid
 erDiagram
     USERS {
         int user_id PK
@@ -5,7 +6,7 @@ erDiagram
         string email UK
         string password_hash
         string no_telepon
-        string role "admin / pelanggan / kasir"
+        string role
         boolean is_active
         datetime created_at
         datetime updated_at
@@ -41,7 +42,7 @@ erDiagram
 
     SATUAN {
         int satuan_id PK
-        string nama_satuan "pcs / lusin / rim / box / pack"
+        string nama_satuan
     }
 
     PRODUK {
@@ -93,7 +94,7 @@ erDiagram
         string no_faktur UK
         date tanggal_pembelian
         decimal total_biaya
-        string status "dipesan / diterima / dibatalkan"
+        string status
     }
 
     DETAIL_PEMBELIAN_STOK {
@@ -109,7 +110,7 @@ erDiagram
         int riwayat_id PK
         int produk_id FK
         int user_id FK
-        string tipe "masuk / keluar / penyesuaian / retur"
+        string tipe
         int jumlah
         int stok_sebelum
         int stok_sesudah
@@ -142,7 +143,7 @@ erDiagram
     KUPON {
         int kupon_id PK
         string kode_kupon UK
-        string tipe_diskon "persen / nominal"
+        string tipe_diskon
         decimal nilai_diskon
         decimal min_belanja
         decimal maks_diskon
@@ -159,12 +160,12 @@ erDiagram
         int kupon_id FK
         int metode_pengiriman_id FK
         string no_pesanan UK
-        string tipe_penjualan "online / offline"
+        string tipe_penjualan
         decimal subtotal
         decimal diskon
         decimal ongkir
         decimal total_bayar
-        string status "menunggu_bayar / diproses / dikirim / selesai / dibatalkan"
+        string status
         text catatan
         datetime tanggal_pesanan
     }
@@ -182,7 +183,7 @@ erDiagram
     METODE_PEMBAYARAN {
         int metode_pembayaran_id PK
         string nama_metode
-        string tipe "transfer / ewallet / cod / tunai / qris"
+        string tipe
         string nomor_rekening
         string atas_nama
         boolean is_active
@@ -194,7 +195,7 @@ erDiagram
         int metode_pembayaran_id FK
         decimal jumlah_bayar
         string bukti_transfer
-        string status "pending / verifikasi / lunas / gagal / refund"
+        string status
         datetime tanggal_bayar
         int diverifikasi_oleh FK
     }
@@ -218,7 +219,7 @@ erDiagram
         int pesanan_id FK
         int metode_pengiriman_id FK
         string no_resi
-        string status "disiapkan / dikirim / diterima"
+        string status
         datetime tanggal_kirim
         datetime tanggal_terima
     }
@@ -238,7 +239,7 @@ erDiagram
         int pesanan_id FK
         int user_id FK
         string alasan
-        string status "diajukan / disetujui / ditolak / selesai"
+        string status
         datetime created_at
     }
 
@@ -313,3 +314,4 @@ erDiagram
     METODE_PENGIRIMAN ||--o{ PENGIRIMAN : digunakan
 
     RETUR ||--|{ DETAIL_RETUR : berisi
+```
